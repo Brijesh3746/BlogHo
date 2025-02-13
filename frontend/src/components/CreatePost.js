@@ -79,6 +79,7 @@ const CreatePost = () => {
         content: "",
     });
     const navigate = useNavigate();
+    const url = process.env.REACT_APP_BACKEND_URL
 
     useEffect(() => {
         // Check if the user is authenticated
@@ -103,7 +104,7 @@ const CreatePost = () => {
                 return;
             }
             const response = await axios.post(
-                "http://localhost:4000/api/v1/posts/create",
+                `${url}/posts/create`,
                 formData,
                 {
                     headers: {

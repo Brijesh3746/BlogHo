@@ -3,6 +3,8 @@ import axios from "axios";
 
 const Posts = () => {
     const [posts, setPosts] = useState([]);
+    const url = process.env.REACT_APP_BACKEND_URL
+
 
     const fetchUserPosts = async () => {
         const token = localStorage.getItem("token"); // Get the token from local storage
@@ -13,7 +15,7 @@ const Posts = () => {
         }
 
         try {
-            const response = await axios.get("http://localhost:4000/api/v1/posts", {
+            const response = await axios.get(`${url}/posts`, {
                 headers: {
                     Authorization: `Bearer ${token}`, // Include token in the request
                 },

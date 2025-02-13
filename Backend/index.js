@@ -52,7 +52,7 @@ app.use(express.json()); // Parse JSON bodies
 app.use(cookieParser());
 
 // MongoDB connection
-mongoose.connect(process.env.DATABASE_URL, { })
+mongoose.connect(process.env.DATABASE_URL, {})
   .then(() => console.log("MongoDB connected successfully"))
   .catch(err => console.error("MongoDB connection error:", err));
 

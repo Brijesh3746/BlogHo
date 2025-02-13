@@ -81,6 +81,8 @@ const Login = () => {
         password: "",
     });
     const navigate = useNavigate();
+    const url = process.env.REACT_APP_BACKEND_URL
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -91,7 +93,7 @@ const Login = () => {
         e.preventDefault();
         try {
             const response = await axios.post(
-                "http://localhost:4000/api/v1/login",
+                `${url}/login`,
                 formData
             );
             // Store the token in localStorage

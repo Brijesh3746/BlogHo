@@ -11,6 +11,8 @@ const Signup = () => {
         password: "",
         role: "Student",
     });
+    const url = process.env.REACT_APP_BACKEND_URL
+
 
     const navigate = useNavigate();
 
@@ -22,7 +24,7 @@ const Signup = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:4000/api/v1/signup", formData);
+            const response = await axios.post(`${url}/signup`, formData);
             toast.success(response.data.message);
             navigate("/login"); // Redirect to login page
         } catch (error) {
